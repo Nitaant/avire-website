@@ -692,15 +692,15 @@ h3 {
     gap: 2rem;
   }
 
-  .main-nav .nav-list a {
-    color: var(--color-secondary); /* White links in mobile menu */
-    font-size: 1.4rem;
-  }
-
   /* --- THIS IS THE FIX --- */
   /* This new rule is more specific and will override other styles */
   .main-nav.nav-open .nav-list a {
-    color: var(--color-secondary) !important; /* Force links to be white */
+    color: var(--color-secondary) !important;
+  }
+
+  .main-nav .nav-list a {
+    color: var(--color-secondary); /* White links in mobile menu */
+    font-size: 1.4rem;
   }
 
   .nav-toggle {
