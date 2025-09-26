@@ -557,32 +557,24 @@ h3 {
 }
 
 /* --- Footer Logo Styling --- */
-/* The base 'logo-text' styles define the structure. */
-/* These override/adjust for the footer's dark background. */
 .main-footer .footer-logo-text {
-  /* Use this new class */
-  margin-bottom: 1.5rem; /* Space below the logo */
+  margin-bottom: 1.5rem;
 }
 
 .main-footer .footer-logo-main {
-  /* Targeting the main logo text in footer */
-  color: var(--color-secondary); /* White text for the main part of the logo */
-  font-size: 2.2rem; /* Adjust size for footer if different from header */
-  /* Add any other specific styles for the main part of the logo in the footer */
+  color: var(--color-secondary);
+  font-size: 2.2rem;
 }
 
 .main-footer .footer-logo-main .logo-diamond-wrapper::before {
-  /* Target the diamond in the footer */
-  color: var(--color-accent); /* Muted gold for the diamond */
-  font-size: 0.7em; /* Keep it relative, or adjust if needed */
-  top: -0.25em; /* Ensure vertical position is consistent or adjusted */
+  color: var(--color-accent);
+  font-size: 0.7em;
+  top: -0.25em;
 }
 
 .main-footer .footer-logo-tagline {
-  /* Targeting the tagline in footer */
-  color: rgba(255, 255, 255, 0.7); /* Slightly transparent white for tagline */
-  font-size: 0.75rem; /* Adjust size for footer tagline */
-  /* Add any other specific styles for the tagline in the footer */
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
 }
 /* --- End Footer Logo Styling --- */
 
@@ -590,7 +582,7 @@ h3 {
   color: var(--color-secondary);
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  font-family: var(--font-body); /* Use sans-serif for footer headings */
+  font-family: var(--font-body);
 }
 
 .footer-col ul {
@@ -653,15 +645,13 @@ h3 {
   .logo-text .logo-main {
     font-size: 2rem;
   }
-  /* Ensure diamond is scaled correctly on mobile */
   .logo-text .logo-diamond-wrapper {
-    width: 0.65em; /* Maintain proportional width */
+    width: 0.65em;
   }
   .logo-text .logo-diamond-wrapper::before {
-    font-size: 0.7em; /* Keep diamond relative to current font size */
-    top: -0.25em; /* Maintain vertical offset */
+    font-size: 0.7em;
+    top: -0.25em;
   }
-
   .logo-text .logo-tagline {
     font-size: 0.7rem;
   }
@@ -672,9 +662,7 @@ h3 {
     right: 0;
     width: 70%;
     height: 100%;
-    background-color: var(
-      --color-primary
-    ); /* Dark background for mobile menu */
+    background-color: var(--color-primary);
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     z-index: 999;
@@ -692,47 +680,41 @@ h3 {
     gap: 2rem;
   }
 
-  /* --- THIS IS THE FIX --- */
-  /* This new rule is more specific and will override other styles */
   .main-nav.nav-open .nav-list a {
     color: var(--color-secondary) !important;
   }
 
   .main-nav .nav-list a {
-    color: var(--color-secondary); /* White links in mobile menu */
+    color: var(--color-secondary);
     font-size: 1.4rem;
   }
 
   .nav-toggle {
-    display: block; /* Show hamburger on mobile */
+    display: block;
   }
 
-  /* Hamburger animation when nav is open */
   .nav-toggle.nav-open .hamburger {
     background: transparent;
   }
-
   .nav-toggle.nav-open .hamburger::before {
     transform: rotate(-45deg);
     top: 0;
-    background: var(--color-secondary); /* White X */
+    background: var(--color-secondary);
   }
-
   .nav-toggle.nav-open .hamburger::after {
     transform: rotate(45deg);
     top: 0;
-    background: var(--color-secondary); /* White X */
+    background: var(--color-secondary);
   }
   .main-header.scrolled .nav-toggle .hamburger,
   .main-header.scrolled .nav-toggle .hamburger::before,
   .main-header.scrolled .nav-toggle .hamburger::after {
-    background: var(--color-primary); /* Dark burger when scrolled */
+    background: var(--color-primary);
   }
 
   .hero-title {
     font-size: 3.5rem;
   }
-
   .hero-subtitle {
     font-size: 2rem;
   }
@@ -747,12 +729,18 @@ h3 {
     text-align: center;
   }
 
+  /* THIS IS THE FIX FOR THE FOOTER LOGO ON MOBILE */
+  .main-footer .logo-text {
+    align-items: center;
+  }
+
   .footer-col ul {
     padding: 0;
   }
 }
 
 /* --- Internal Page Specific Styles --- */
+/* (The rest of your CSS file remains the same) */
 
 /* Filter Buttons (Work Page) */
 .filter-buttons {
