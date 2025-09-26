@@ -1,0 +1,1015 @@
+/* Basic Reset & Global Styles */
+:root {
+    --color-primary: #4A5334; /* Olive Green */
+    --color-secondary: #F5F1E9; /* Creamy Off-white */
+    --color-accent: #B0935D; /* Muted Gold (for subtle highlights) */
+    --color-dark: #333333; /* Warm Charcoal */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --padding-section: 6rem 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px; /* Base font size */
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-dark);
+    background-color: var(--color-secondary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.8rem; }
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-dark);
+    border-color: var(--color-dark);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+/* Section Styling */
+.section-padding {
+    padding: var(--padding-section);
+}
+
+.bg-light {
+    background-color: var(--color-secondary);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.section-subtitle {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: var(--color-dark);
+}
+
+/* Header */
+.main-header {
+    background-color: transparent; /* Initial transparent, can change on scroll with JS */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Text Logo Styling - Shared Base Styles */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.logo-text .logo-main {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 500;
+    /* Color will be set by specific header/footer rules */
+    transition: color 0.3s ease;
+    display: inline-flex; /* Use flexbox to align 'a', diamond, 'iré' horizontally */
+    align-items: flex-end; /* Align characters and diamond base */
+}
+
+/* Wrapper for the diamond to treat it as a letter-width space */
+.logo-text .logo-diamond-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 0.65em; /* Approximate width of the letter 'v' at 2.5rem */
+    height: 1em; /* Ensures vertical space for positioning */
+    text-align: center; /* Center the diamond within its space */
+    line-height: 1; /* Reset line height for precise control */
+}
+
+/* The diamond itself, using a pseudo-element */
+.logo-text .logo-diamond-wrapper::before {
+    content: '♦'; /* Use a pseudo-element for the diamond */
+    font-family: 'Playfair Display', serif; /* Ensure consistent font for diamond */
+    color: var(--color-accent); /* Default diamond color */
+    font-size: 0.7em; /* Adjust size relative to logo-main font size */
+    position: absolute;
+    top: -0.25em; /* Move up above the baseline */
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+}
+
+.logo-text .logo-tagline {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    /* Color will be set by specific header/footer rules */
+    margin-top: 0.2rem;
+    transition: color 0.3s ease;
+}
+
+
+/* --- Header-Specific Logo Styling --- */
+.main-header .logo-text .logo-main {
+    color: var(--color-secondary); /* White for header on hero video */
+}
+.main-header .logo-text .logo-tagline {
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white for tagline */
+}
+
+
+.main-nav .nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav .nav-list a {
+    color: var(--color-secondary); /* White links on hero */
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 0.3rem;
+}
+
+.main-nav .nav-list a.active,
+.main-nav .nav-list a:hover {
+    color: var(--color-accent);
+}
+
+.main-nav .nav-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.main-nav .nav-list a:hover::after,
+.main-nav .nav-list a.active::after {
+    width: 100%;
+}
+
+/* Header scrolled state (added by JS) */
+.main-header.scrolled {
+    background-color: var(--color-secondary);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 1rem 0;
+}
+
+/* Scrolled state: Dark colors for text logo */
+.main-header.scrolled .logo-text .logo-main {
+    color: var(--color-primary);
+}
+
+.main-header.scrolled .logo-text .logo-tagline {
+    color: var(--color-dark);
+}
+
+
+.main-header.scrolled .main-nav .nav-list a {
+    color: var(--color-primary); /* Dark links on scrolled header */
+}
+
+.main-header.scrolled .main-nav .nav-list a:hover,
+.main-header.scrolled .main-nav .nav-list a.active {
+    color: var(--color-accent);
+}
+
+/* Hamburger Menu Toggle (Hidden on Desktop) */
+.nav-toggle {
+    display: none; /* Hide by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 3px;
+    background: var(--color-secondary); /* White on hero */
+    transition: background 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: var(--color-secondary); /* White on hero */
+    transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+.main-header.scrolled .hamburger,
+.main-header.scrolled .hamburger::before,
+.main-header.scrolled .hamburger::after {
+    background: var(--color-primary); /* Dark on scrolled header */
+}
+/* --- Internal Page Hero Section --- */
+.page-hero {
+    background-color: var(--color-secondary); /* Creamy background */
+    padding: 10rem 0 5rem 0; /* Top padding to clear fixed header, bottom padding */
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Subtle separator */
+}
+
+.page-title {
+    font-size: 3.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--color-dark);
+}
+
+/* --- Specific Styles for Internal Pages (non-homepage) --- */
+/* For headers on pages without the hero video, they should start 'scrolled' */
+.main-header.header-static {
+    position: relative; /* Make it static, not absolute over video */
+    background-color: var(--color-secondary); /* Solid background from the start */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 1rem 0;
+}
+
+/* For static header (internal pages): Dark colors for text logo */
+.main-header.header-static .logo-text .logo-main {
+    color: var(--color-primary);
+}
+
+.main-header.header-static .logo-text .logo-tagline {
+    color: var(--color-dark);
+}
+
+
+.main-header.header-static .main-nav .nav-list a {
+    color: var(--color-primary); /* Ensure links are dark */
+}
+
+.main-header.header-static .main-nav .nav-list a:hover,
+.main-header.header-static .main-nav .nav-list a.active {
+    color: var(--color-accent);
+}
+
+.main-header.header-static .nav-toggle .hamburger,
+.main-header.header-static .nav-toggle .hamburger::before,
+.main-header.header-static .nav-toggle .hamburger::after {
+    background: var(--color-primary); /* Dark burger */
+}
+
+/* Ensure footer links are also white on hover on internal pages */
+.footer-col ul a.active {
+    color: var(--color-accent);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-secondary); /* White text */
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+    z-index: -1;
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 5rem; /* Larger for 'av,iré' */
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em; /* Add some spacing */
+}
+
+.hero-subtitle {
+    font-size: 3rem;
+    color: var(--color-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Services Overview Section */
+.services-overview-section {
+    background-color: var(--color-secondary);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.service-item {
+    background-color: #ffffff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.service-item .icon-large {
+    font-size: 3.5rem;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.service-item p {
+    color: var(--color-dark);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Featured Work Section */
+.featured-work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.work-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.work-card:hover {
+    transform: translateY(-8px);
+}
+
+.work-card img {
+    width: 100%;
+    height: 300px; /* Fixed height for consistency */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.work-card:hover img {
+    transform: scale(1.05);
+}
+
+.work-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    color: var(--color-secondary);
+    padding: 1.5rem 1.2rem;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.work-card:hover .work-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.work-overlay h3 {
+    font-size: 1.6rem;
+    color: var(--color-secondary);
+    margin-bottom: 0.3rem;
+}
+
+.work-overlay p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--color-primary);
+    color: rgba(255, 255, 255, 0.8);
+    padding: var(--padding-section) 0 3rem 0;
+    font-size: 0.95rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* --- Footer Logo Styling --- */
+/* The base 'logo-text' styles define the structure. */
+/* These override/adjust for the footer's dark background. */
+.main-footer .footer-logo-text { /* Use this new class */
+    margin-bottom: 1.5rem; /* Space below the logo */
+}
+
+.main-footer .footer-logo-main { /* Targeting the main logo text in footer */
+    color: var(--color-secondary); /* White text for the main part of the logo */
+    font-size: 2.2rem; /* Adjust size for footer if different from header */
+    /* Add any other specific styles for the main part of the logo in the footer */
+}
+
+.main-footer .footer-logo-main .logo-diamond-wrapper::before { /* Target the diamond in the footer */
+    color: var(--color-accent); /* Muted gold for the diamond */
+    font-size: 0.7em; /* Keep it relative, or adjust if needed */
+    top: -0.25em; /* Ensure vertical position is consistent or adjusted */
+}
+
+.main-footer .footer-logo-tagline { /* Targeting the tagline in footer */
+    color: rgba(255, 255, 255, 0.7); /* Slightly transparent white for tagline */
+    font-size: 0.75rem; /* Adjust size for footer tagline */
+    /* Add any other specific styles for the tagline in the footer */
+}
+/* --- End Footer Logo Styling --- */
+
+
+.footer-col h4 {
+    color: var(--color-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-body); /* Use sans-serif for footer headings */
+}
+
+.footer-col ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.7rem;
+}
+
+.footer-col ul a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-col ul a:hover {
+    color: var(--color-accent);
+}
+
+.footer-col.contact-col a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+}
+
+.social-links a {
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+}
+
+.social-links a:hover {
+    color: var(--color-accent);
+}
+
+/* Utility Classes */
+.mt-4 { margin-top: 2rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+
+    /* Adjust logo text size for smaller screens */
+    .logo-text .logo-main {
+        font-size: 2rem;
+    }
+    /* Ensure diamond is scaled correctly on mobile */
+    .logo-text .logo-diamond-wrapper {
+        width: 0.65em; /* Maintain proportional width */
+    }
+    .logo-text .logo-diamond-wrapper::before {
+        font-size: 0.7em; /* Keep diamond relative to current font size */
+        top: -0.25em; /* Maintain vertical offset */
+    }
+
+    .logo-text .logo-tagline {
+        font-size: 0.7rem;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100%;
+        background-color: var(--color-primary); /* Dark background for mobile menu */
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        padding-top: 5rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    }
+
+    .main-nav.nav-open {
+        transform: translateX(0);
+    }
+
+    .main-nav .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .main-nav .nav-list a {
+        color: var(--color-secondary); /* White links in mobile menu */
+        font-size: 1.4rem;
+    }
+
+    .nav-toggle {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    /* Hamburger animation when nav is open */
+    .nav-toggle.nav-open .hamburger {
+        background: transparent;
+    }
+
+    .nav-toggle.nav-open .hamburger::before {
+        transform: rotate(-45deg);
+        top: 0;
+        background: var(--color-secondary); /* White X */
+    }
+
+    .nav-toggle.nav-open .hamburger::after {
+        transform: rotate(45deg);
+        top: 0;
+        background: var(--color-secondary); /* White X */
+    }
+    .main-header.scrolled .nav-toggle .hamburger,
+    .main-header.scrolled .nav-toggle .hamburger::before,
+    .main-header.scrolled .nav-toggle .hamburger::after {
+        background: var(--color-primary); /* Dark burger when scrolled */
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 2rem;
+    }
+
+    .services-grid, .featured-work-grid, .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content > div {
+        text-align: center;
+    }
+
+    .footer-col ul {
+        padding: 0;
+    }
+}
+
+/* --- Internal Page Specific Styles --- */
+
+/* Filter Buttons (Work Page) */
+.filter-buttons {
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 0.7rem 1.5rem;
+    margin: 0 0.5rem 0.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+/* Services Detailed Section (Services Page) - UPDATED */
+.services-detailed-section .service-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid #e0dace; /* Softer border color */
+}
+
+.services-detailed-section .service-detail-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.service-detail-icon {
+    flex-shrink: 0;
+    font-size: 3rem;
+    color: var(--color-accent);
+    padding-top: 0.5rem;
+    width: 50px;
+    text-align: center;
+}
+
+.service-detail-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.service-detail-content p {
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+    max-width: 70ch; /* Limit line length for readability */
+}
+
+.service-detail-content ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+    color: var(--color-dark);
+}
+
+.service-detail-content ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 2rem;
+    position: relative;
+    font-weight: 500;
+}
+
+.service-detail-content ul li::before {
+    content: '◆'; /* Using a diamond symbol */
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--color-accent);
+    font-size: 1rem;
+}
+
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-image img {
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    margin-bottom: 1rem;
+    color: var(--color-dark);
+}
+
+.bg-light-alt {
+    background-color: #FDFCFB; /* Slightly lighter than secondary */
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.philosophy-item {
+    background-color: #ffffff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    text-align: center;
+}
+
+.philosophy-item h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-primary);
+}
+
+.philosophy-item p {
+    color: var(--color-dark);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.contact-form-wrapper {
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.contact-form-wrapper h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-dark);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.contact-info-wrapper {
+    padding: 3rem 0;
+}
+
+.contact-info-wrapper h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.contact-info-wrapper p {
+    margin-bottom: 2rem;
+    color: var(--color-dark);
+}
+
+.contact-info-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2.5rem;
+}
+
+.contact-info-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: var(--color-dark);
+}
+
+.contact-info-list li i {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-right: 1rem;
+    width: 25px; /* Fixed width for icon alignment */
+    text-align: center;
+}
+
+.contact-info-list li a {
+    color: var(--color-dark);
+}
+
+.contact-info-list li a:hover {
+    color: var(--color-primary);
+}
+
+.social-links-contact {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links-contact a {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+}
+
+.social-links-contact a:hover {
+    color: var(--color-accent);
+}
+
+
+/* Responsive Adjustments for new sections */
+@media (max-width: 992px) {
+    .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-image {
+        order: -1; /* Image appears above text on mobile */
+        margin-bottom: 2rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .services-detailed-section .service-detail-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .service-detail-icon {
+        padding-top: 0;
+        margin-bottom: 1rem;
+    }
+    .service-detail-content p {
+        max-width: 100%;
+    }
+    .service-detail-content ul {
+        display: inline-block;
+        text-align: left;
+    }
+    .about-content, .contact-info-wrapper, .contact-form-wrapper {
+        text-align: center;
+    }
+    .contact-info-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+    }
+    .social-links-contact {
+        justify-content: center;
+    }
+}

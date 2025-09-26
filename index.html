@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aviré – Navigate the Narrative</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container header-content">
+        <a href="index.html" class="logo-text">
+          <span class="logo-main">aviré</span>
+          <span class="logo-tagline">Navigate the Narrative</span>
+        </a>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" aria-label="toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="videos/hero-background.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+          <h1 class="hero-title">aviré</h1>
+          <h2 class="hero-subtitle">Navigate the Narrative</h2>
+          <p class="hero-description">
+            Crafting bespoke digital stories that turn heads and build brands.
+          </p>
+          <a href="work.html" class="btn btn-primary">View Our Work</a>
+        </div>
+      </section>
+
+      <section class="services-overview-section section-padding bg-light">
+        <div class="container text-center">
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">
+            Crafting unique paths for every brand's journey.
+          </p>
+          <div class="services-grid">
+            <div class="service-item">
+              <i class="fas fa-comments icon-large"></i>
+              <h3>Social Media Strategy</h3>
+              <p>
+                Navigating the ever-changing digital landscape to start your a
+                clear and concise social media roadmap.
+              </p>
+            </div>
+            <div class="service-item">
+              <i class="fas fa-camera icon-large"></i>
+              <h3>Content Creation</h3>
+              <p>
+                Producing captivating visuals and compelling copy that resonates
+                with your audience and tells your story.
+              </p>
+            </div>
+            <div class="service-item">
+              <i class="fas fa-users icon-large"></i>
+              <h3>Community Management</h3>
+              <p>
+                Fostering genuine connections and active engagement,
+                transforming followers into loyal advocates.
+              </p>
+            </div>
+          </div>
+          <a href="services.html" class="btn btn-secondary mt-4"
+            >Explore All Services</a
+          >
+        </div>
+      </section>
+
+      <section class="featured-work-section section-padding">
+        <div class="container text-center">
+          <h2 class="section-title">Featured Work</h2>
+          <p class="section-subtitle">
+            A glimpse into the narratives we've crafted.
+          </p>
+          <div class="featured-work-grid">
+            <a href="case-study-gilded-spoon.html" class="work-card">
+              <img src="images/work-gilded-spoon.jpg" alt="Pongal NYC" />
+              <div class="work-overlay">
+                <h3>Pongal NYC</h3>
+                <p>Restaurant Marketing</p>
+              </div>
+            </a>
+            <a href="case-study-versus-flow.html" class="work-card">
+              <img
+                src="images/work-versus-flow.jpg"
+                alt="Hair Garage by Natasha"
+              />
+              <div class="work-overlay">
+                <h3>Hair Garage by Natasha</h3>
+                <p>Hair Salon Branding</p>
+              </div>
+            </a>
+            <a href="case-study-smokey-mane.html" class="work-card">
+              <img src="images/work-smokey-mane.jpg" alt="Amandeep Kaur" />
+              <div class="work-overlay">
+                <h3>Amandeep Kaur</h3>
+                <p>Influencer</p>
+              </div>
+            </a>
+          </div>
+          <a href="work.html" class="btn btn-primary mt-4">View All Work</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container footer-content">
+        <div class="footer-col logo-col">
+          <a href="index.html" class="logo-text footer-logo-text">
+            <span class="logo-main footer-logo-main">aviré</span>
+            <span class="logo-tagline footer-logo-tagline"
+              >Navigate the Narrative</span
+            >
+          </a>
+          <p>&copy; 2025 aviré. All rights reserved.</p>
+        </div>
+        <div class="footer-col nav-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="work.html">Our Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col contact-col">
+          <h4>Get in Touch</h4>
+          <p>Email: <a href="mailto:hello@avire.com">hello@avire.com</a></p>
+          <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
