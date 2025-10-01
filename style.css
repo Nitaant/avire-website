@@ -729,8 +729,10 @@ h3 {
     text-align: center;
   }
 
-  /* THIS IS THE FIX FOR THE FOOTER LOGO ON MOBILE */
-  .main-footer .logo-text {
+  /* --- THIS IS THE BULLETPROOF FIX --- */
+  .footer-content .footer-col.logo-col {
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
