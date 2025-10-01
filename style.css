@@ -139,20 +139,22 @@ h3 {
 
 /* Header */
 .main-header {
-  background-color: transparent; /* Initial transparent, can change on scroll with JS */
+  background-color: transparent;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.5rem 0;
-  transition: background-color 0.3s ease, padding 0.3s ease;
+  padding: 0; /* Change: Padding removed from header container */
+  transition: background-color 0.3s ease;
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 0; /* Change: Padding moved here */
+  transition: padding 0.3s ease; /* Change: Transition added here */
 }
 
 /* Text Logo Styling - Shared Base Styles */
@@ -251,6 +253,10 @@ h3 {
 .main-header.scrolled {
   background-color: var(--color-secondary);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* New rule to handle padding on scrolled content */
+.main-header.scrolled .header-content {
   padding: 1rem 0;
 }
 
@@ -346,7 +352,10 @@ h3 {
     --color-secondary
   ); /* Solid background from the start */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  padding: 1rem 0;
+}
+
+.main-header.header-static .header-content {
+  padding: 1rem 0; /* Adjust padding for static header content */
 }
 
 /* For static header (internal pages): Dark colors for text logo */
@@ -392,25 +401,22 @@ h3 {
 
 .hero-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -1;
-  transform: translate(-50%, -50%);
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  z-index: -2; /* Pushed further back for stacking context */
 }
 
 .hero-overlay {
   position: absolute;
-  top: 0;
+  top: -100px;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
-  z-index: -1;
+  z-index: -1; /* Sits on top of the video */
 }
 
 .hero-content {
@@ -557,7 +563,7 @@ h3 {
 }
 
 /* --- Footer Logo Styling --- */
-.main-footer .footer-logo-text {
+.main-footer .logo-text {
   margin-bottom: 1.5rem;
 }
 
@@ -729,10 +735,7 @@ h3 {
     text-align: center;
   }
 
-  /* --- THIS IS THE BULLETPROOF FIX --- */
-  .footer-content .footer-col.logo-col {
-    display: flex;
-    flex-direction: column;
+  .main-footer .logo-text {
     align-items: center;
   }
 
